@@ -16,20 +16,15 @@ import java.util.logging.Logger;
  */
 public class VisorDeTXTs {
     public void mostrarTxt(String ruta) {
-        File elArchivo = new File(ruta); 
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(elArchivo));
-            System.out.println( br.readLine());
+        File elArchivo = new File(ruta);
+
+        // El recurso se declara entre paréntesis después del try
+        try (BufferedReader br = new BufferedReader(new FileReader(elArchivo))) {
+            System.out.println(br.readLine());
         } catch (IOException e) {
             System.out.println("Error de E/S: " + e.getMessage());
             throw new RuntimeException("Error inesperado en el catch");
-        } finally {
-            try {
-                br.close();
-            } catch (IOException ex) {
-                System.out.println("No se pudo liberar el br");
-            }
         }
+        // No necesitas bloque finally para cerrar br, Java lo hace solo.
     }
 }

@@ -22,4 +22,8 @@ public class Persona {
             throw new IllegalArgumentException("La edad debe ser positiva", ex);
         }        
     }
+
+    public int getEdad() {
+        return edad;
+    }
 }
