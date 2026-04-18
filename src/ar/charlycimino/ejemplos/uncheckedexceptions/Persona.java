@@ -10,9 +10,9 @@ public class Persona {
 
     private int edad;
 
-    public Persona(int edad) {
-        setEdad(edad);
+    public Persona(int i) {
     }
+
 
     private void setEdad(int edad) /* throws IllegalArgumentException */ {
         try {
